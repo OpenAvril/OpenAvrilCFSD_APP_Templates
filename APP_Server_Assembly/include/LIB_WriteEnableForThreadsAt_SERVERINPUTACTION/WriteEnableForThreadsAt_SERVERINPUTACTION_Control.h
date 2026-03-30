@@ -1,0 +1,88 @@
+#pragma once
+namespace OpenAvrilCLIBWriteEnableForThreadsAtSERVERINPUTACTION
+{
+    class WriteEnableForThreadsAt_SERVERINPUTACTION_Control
+    {
+    public:
+        WriteEnableForThreadsAt_SERVERINPUTACTION_Control();
+        ~WriteEnableForThreadsAt_SERVERINPUTACTION_Control();
+        static void boot0_CLASS_DECLAIRE_WriteEnableForThreadsAt_SERVERINPUTACTION_Control();
+        static void boot1_CLASS_DEFINE_WriteEnableForThreadsAt_SERVERINPUTACTION_Control();
+        static void boot3_CLASS_INITIALISE_WriteEnableForThreadsAt_SERVERINPUTACTION_Control();
+        static void boot0_REG_DECLAIRE_WriteEnableForThreadsAt_SERVERINPUTACTION_Control();
+        void boot1_REG_DEFINE_WriteEnableForThreadsAt_SERVERINPUTACTION_Control(class WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj);
+        void boot2_REG_SUBSTANTIATE_WriteEnableForThreadsAt_SERVERINPUTACTION_Control(class WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj);
+        void boot3_REG_INITIALISE_WriteEnableForThreadsAt_SERVERINPUTACTION_Control(class WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj);
+        void boot4_PGM_INSTANTIATE_WriteEnableForThreadsAt_SERVERINPUTACTION_Control(class WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj);
+        void app_FUNCT_writeEnable_Activate(class WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj, uint8_t coreId);
+        void app_FUNCT_writeEnable_SortQue(class WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj);
+        void app_FUNCT_writeEnable_Request(class WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj, uint8_t coreId);
+        void app_FUNCT_writeQue_Update(class WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj);
+        bool dyn_REG_get_ptr_flag_praisingWrite();
+        std::array<bool, 2> dyn_REG_get_ptr_list_Of_2ibt_flag_WriteState(uint8_t concurrentThreadID);
+        uint32_t dyn_REG_get_Item_On_list_Of_WriteActive_Count_For_ThreadId(uint8_t concurrentThreadID);
+        uint32_t dyn_REG_get_Item_On_list_Of_WriteIdle_Count_For_ThreadId(uint8_t concurrentThreadID);
+        uint32_t dyn_REG_get_Item_On_list_Of_WriteWait_Count_For_ThreadId(uint8_t concurrentThreadID);
+        uint8_t dyn_REG_get_Item_new_writeCycle_Try_ThreadId_Index();
+        uint8_t dyn_REG_get_Item_On_QUE_List_Of_ThreadToWrite(uint8_t slotID);
+        uint8_t dyn_REG_get_Item_writeCycle_Try_ThreadId_Index();
+        void dyn_REG_set_flag_praisingWrite(bool newBoolValue);
+        void dyn_REG_set_Item_On_list_Of_2ibt_flag_WriteState(uint8_t concurrentThreadID, std::array<bool, 2> new2bitState);
+        void dyn_REG_set_Item_On_list_Of_WriteActive_Count_For_ThreadId(uint8_t concurrentThreadID, uint32_t newCount);
+        void dyn_REG_set_Item_On_list_Of_WriteIdle_Count_For_ThreadId(uint8_t concurrentThreadID, uint32_t newCount);
+        void dyn_REG_set_Item_On_list_Of_WriteWait_Count_For_ThreadId(uint8_t concurrentThreadID, uint32_t newCount);
+        void dyn_REG_set_new_writeCycle_Try_ThreadId_Index(uint8_t newID);
+        void dyn_REG_set_Item_On_QUE_List_Of_ThreadToWrite(uint8_t slotID, uint8_t newID);
+        void dyn_REG_set_writeCycle_Try_ThreadId_Index(uint8_t newID);
+        void dynamicStagger(class WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj, uint8_t coreId);
+        void writeEnable_ShiftQueValues(class WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj, uint8_t coreId_A, uint8_t coreId_B);
+        static bool* _stat_REG_ptr_flag_praisingWrite;
+        static std::array<std::array<bool, 2>, 3>* _stat_REG_LIST_Of_3STATE_flag_WriteState;
+        static std::list<uint32_t>* _stat_REG_LIST_Of_WriteACTIVE_Count_For_ThreadId;
+        static std::list<uint32_t>* _stat_REG_LIST_Of_WriteIDLE_Count_For_ThreadId;
+        static std::list<uint32_t>* _stat_REG_LIST_Of_WriteWAIT_Count_For_ThreadId;
+        static uint8_t* _stat_REG_ptr_new_writeCycle_Try_ThreadId_Index;
+        static std::list<uint8_t>* _stat_REG_QUE_Of_ThreadID_To_WRITE;
+        static uint8_t* _stat_REG_ptr_writeCycle_Try_ThreadId_Index;
+        static void stat_REG_boot1_DEFINE_ptr_flag_praisingWrite();
+        static void stat_REG_boot1_DEFINE_ptr_3STATE_flag_WriteState();
+        static void stat_REG_boot1_DEFINE_ptr_WriteACTIVE_Count_For_ThreadId();
+        static void stat_REG_boot1_DEFINE_ptr_WriteIDLE_Count_For_ThreadId();
+        static void stat_REG_boot1_DEFINE_ptr_WriteWAIT_Count_For_ThreadId();
+        static void stat_REG_boot1_DEFINE_ptr_new_writeCycle_Try_ThreadId_Index();
+        static void stat_REG_boot1_DEFINE_ptr_QUE_Of_ThreadID_To_WRITE();
+        static void stat_REG_boot1_DEFINE_ptr_writeCycle_Try_ThreadId_Index();
+        static void stat_REG_boot2_SUBSTANTIATE_ptr_flag_praisingWrite();
+        static void stat_REG_boot2_SUBSTANTIATE_ptrv_3STATE_flag_WriteState();
+        static void stat_REG_boot2_SUBSTANTIATE_WriteACTIVE_Count_For_ThreadId(class WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj);
+        static void stat_REG_boot2_SUBSTANTIATE_WriteIDLE_Count_For_ThreadId(class WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj);
+        static void stat_REG_boot2_SUBSTANTIATE_WriteWAIT_Count_For_ThreadId(class WriteEnableForThreadsAt_SERVERINPUTACTION_Framework* obj);
+        static void stat_REG_boot2_SUBSTANTIATE_new_writeCycle_Try_ThreadId_Index();
+        static void stat_REG_boot2_SUBSTANTIATE_ptr_QUE_Of_ThreadID_To_WRITE();
+        static void stat_REG_boot2_SUBSTANTIATE_writeCycle_Try_ThreadId_Index();
+        static void stat_REG_boot3_INITIALISE_ptr_flag_praisingWrite();
+        static void stat_REG_boot3_INITIALISE_ptr_3STATE_flag_WriteState();
+        static void stat_REG_boot3_INITIALISE_ptr_WriteACTIVE_Count_For_ThreadId();
+        static void stat_REG_boot3_INITIALISE_WriteIDLE_Count_For_ThreadId();
+        static void stat_REG_boot3_INITIALISE_WriteWAIT_Count_For_ThreadIdd();
+        static void stat_REG_boot3_INITIALISE_new_writeCycle_Try_ThreadId_Index();
+        static void stat_REG_boot3_INITIALISE_ptr_QUE_Of_ThreadID_To_WRITE();
+        static void stat_REG_boot3_INITIALISE_writeCycle_Try_ThreadId_Index();
+        static bool* stat_REG_get_ptr_flag_praisingWrite();
+        static std::array <std::array<bool, 2>, 3>* stat_REG_get_ptr_Array_Of_3STATE_flag_WriteState();
+        static std::list<uint32_t>* stat_REG_get_ptr_list_Of_WriteActive_Count_For_ThreadId();
+        static std::list<uint32_t>* stat_REG_get_ptr_list_Of_WriteIdle_Count_For_ThreadId();
+        static std::list<uint32_t>* stat_REG_get_ptr_list_Of_WriteWait_Count_For_ThreadId();
+        static uint8_t* stat_REG_get_ptr_new_writeCycle_Try_ThreadId_Index();
+        static std::list<uint8_t>* stat_REG_get_ptr_QUE_List_Of_ThreadToWrite();
+        static uint8_t* stat_REG_get_ptr_writeCycle_Try_ThreadId_Index();
+        static void stat_REG_dyn_REG_set_flag_praisingWrite(bool newFlag);
+        static void stat_REG_set_Item_On_Of_3STATE_flag_WriteState(uint8_t concurrentThreadID, std::array<bool, 2> new2bitState);
+        static void stat_REG_set_Item_On_list_Of_WriteACTIVE_Count_For_ThreadId(uint8_t concurrentThreadID, uint32_t newCount);
+        static void stat_REG_set_Item_On_list_Of_WriteIdle_Count_For_ThreadId(uint8_t concurrentThreadID, uint32_t newCount);
+        static void stat_REG_set_Item_On_list_Of_WriteWait_Count_For_ThreadId(uint8_t concurrentThreadID, uint32_t newCount);
+        static void stat_REG_set_new_writeCycle_Try_ThreadId_Index(uint8_t newValue);
+        static void stat_REG_set_Item_On_QUE_List_Of_ThreadToWrite(uint8_t slotID, uint8_t concurrentThreadID);
+        static void stat_REG_set_writeCycle_Try_ThreadId_Index(uint8_t newValue);
+    };
+}

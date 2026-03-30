@@ -1,0 +1,92 @@
+﻿namespace OpenAvrilCFSD.ClientAssembly
+{
+    public struct Concurrent
+    {
+// public.
+        public void dyn_APP_Thread_Concurrent(byte threadId)
+        {
+            byte _concurrentThreadId = (byte)(threadId - 2);
+            Framework_Client obj = Program.stat_CLASS_get_framework_Client();
+            obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Set_flag_ThreadInitialised(obj, threadId, false);
+            bool doneOnce_A = false;
+            while (obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Get_flag_SystemInitialised() == true)
+            {
+                if (doneOnce_A == false)
+                {
+                    doneOnce_A = true;
+                    obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Set_flag_ThreadInitialised(obj, threadId, false);
+                }
+            }
+            while (obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Get_exitApplication() == false)
+            {
+                if (obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Get_flag_IsLoaded_Stack_OutputRecieve())
+                {
+                    Console.WriteLine("Thread[" + threadId.ToString() + "] => Get_flag_IsLoaded_Stack_OutputRecieve = " + obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Get_flag_IsLoaded_Stack_OutputRecieve());//TestBench
+                    OpenAvrilCFSD.Library_For_WriteEnableForThreadsAt_CLIENTOUTPUTRECIEVE.Write_Start(obj.Get_client().stat_CLASS_get_execute().Get_program_WriteQue_C_OR(), (byte)(_concurrentThreadId + 1));
+                    obj.Get_client().stat_CLASS_get_algorithms().Get_concurrent(_concurrentThreadId).Get_concurrent_Control().SelectSet_Algorithm_Subset(obj, obj.Get_client().Get_stat_CLASS_data().Get_output_Instnace().Get_BACK_outputDoubleBuffer(obj).Get_praiseEventId(), _concurrentThreadId);
+                    obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Pop_Stack_OutputRecieve(obj, obj.Get_client().Get_stat_CLASS_data().Get_output_Instnace().Get_BACK_outputDoubleBuffer(obj), obj.Get_client().Get_stat_CLASS_data().Get_output_Instnace().Get_stat_REG_Stack_At_Client_OutputRecieve_List_Of_Output());
+                    obj.Get_client().Get_stat_CLASS_data().Flip_OutBufferToWrite();
+                    obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Do_Store_PraiseOutputRecieve_To_GameInstanceData(obj, obj.Get_client().Get_stat_CLASS_data().Get_output_Instnace().Get_stat_REG_Stack_At_Client_OutputRecieve_List_Of_Output().ElementAt(1));
+                    obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Set_isPraiseActive(obj.Get_client().Get_stat_CLASS_data().Get_output_Instnace().Get_FRONT_outputDoubleBuffer(obj).Get_praiseEventId(), false);
+                    OpenAvrilCFSD.Library_For_LaunchEnableForConcurrentThreadsAt_CLIENT.Thread_End(obj.Get_client().stat_CLASS_get_execute().Get_program_ConcurrentQue_C(), _concurrentThreadId);
+                    if (obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Get_flag_IsLoaded_Stack_OutputRecieve())
+                    {
+                        if (OpenAvrilCFSD.Library_For_LaunchEnableForConcurrentThreadsAt_CLIENT.Get_State_LaunchBit(obj.Get_client().stat_CLASS_get_execute().Get_program_ConcurrentQue_C()) == OpenAvrilCFSD.Library_For_LaunchEnableForConcurrentThreadsAt_CLIENT.Get_Flag_Idle(obj.Get_client().stat_CLASS_get_execute().Get_program_ConcurrentQue_C()))
+                        {
+                            OpenAvrilCFSD.Library_For_LaunchEnableForConcurrentThreadsAt_CLIENT.Request_Wait_Launch(obj.Get_client().stat_CLASS_get_execute().Get_program_ConcurrentQue_C(), OpenAvrilCFSD.Library_For_LaunchEnableForConcurrentThreadsAt_CLIENT.Get_coreId_To_Launch(obj.Get_client().stat_CLASS_get_execute().Get_program_ConcurrentQue_C()));
+                        }
+                    }
+                    OpenAvrilCFSD.Library_For_WriteEnableForThreadsAt_CLIENTOUTPUTRECIEVE.Write_End(obj.Get_client().stat_CLASS_get_execute().Get_program_WriteQue_C_OR(), (byte)(_concurrentThreadId + 1));
+                }
+            }
+        }
+        public void dyn_REG_boot1_DEFINE_Execute()
+        {
+            System.Console.WriteLine("entered dyn_REG_boot1_DEFINE_Execute().");//TESTBENCH
+
+            System.Console.WriteLine("exiting dyn_REG_boot1_DEFINE_Execute().");//TESTBENCH
+        }
+        public void dyn_REG_boot2_SUBSTANTIATE_Execute()
+        {
+            System.Console.WriteLine("entered dyn_REG_boot2_SUBSTANTIATE_Execute().");//TESTBENCH
+
+            System.Console.WriteLine("exiting dyn_REG_boot2_SUBSTANTIATE_Execute().");//TESTBENCH
+        }
+        public void dyn_REG_boot3_INITIALISE_Execute()
+        {
+            System.Console.WriteLine("entered dyn_REG_boot3_INITIALISE_Execute().");//TESTBENCH
+
+            System.Console.WriteLine("exiting dyn_REG_boot3_INITIALISE_Execute().");//TESTBENCH
+        }
+        public void dyn_PGM_boot4_INSTANCIATE_Execute()
+        {
+            System.Console.WriteLine("entered dyn_PGM_boot4_INSTANCIATE_Execute().");//TESTBENCH
+
+            System.Console.WriteLine("exiting dyn_PGM_boot4_INSTANCIATE_Execute().");//TESTBENCH
+        }
+        static public void stat_CLASS_boot0_DECLAIRE_Execute()
+        {
+            System.Console.WriteLine("entered stat_CLASS_boot0_DECLAIRE_Execute().");//TESTBENCH
+
+            System.Console.WriteLine("exiting stat_CLASS_boot0_DECLAIRE_Execute().");//TESTBENCH
+        }
+        static public void stat_CLASS_boot1_DEFINE_Execute()
+        {
+            System.Console.WriteLine("entered stat_CLASS_boot1_DEFINE_Execute().");//TESTBENCH
+
+            System.Console.WriteLine("exiting stat_CLASS_boot1_DEFINE_Execute().");//TESTBENCH
+        }
+        static public void stat_CLASS_boot3_INITIALISE_Execute()
+        {
+            System.Console.WriteLine("entered stat_CLASS_boot3_INITIALISE_Execute().");//TESTBENCH
+
+            System.Console.WriteLine("exiting stat_CLASS_boot3_INITIALISE_Execute().");//TESTBENCH
+        }
+        static public void stat_REG_boot0_DECLAIRE_Execute()
+        {
+            System.Console.WriteLine("entered stat_REG_boot0_DECLAIRE_Execute().");//TESTBENCH
+
+            System.Console.WriteLine("exiting stat_REG_boot0_DECLAIRE_Execute().");//TESTBENCH
+        }
+    }
+}

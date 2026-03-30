@@ -1,0 +1,35 @@
+#ifdef LIBSERVERIOCONCURRNECY_EXPORTS
+#define LIBSERVERIOCONCURRNECY_API __declspec(dllexport)
+#else
+#define LIBSERVERIOCONCURRNECY_API __declspec(dllimport)
+#endif
+extern "C"
+{
+	namespace OpenAvrilConcurrency
+	{
+		class LIBSERVERIOCONCURRNECY_API CLIBConcurrentServerIO
+		{
+		public:
+			static void app_FUNCT_flip_Input_DoubleBuffer(void* obj);
+			static void* app_FUNCT_generate_Program();
+			static void app_FUNCT_select_set_Intput_Subset(void* obj, unsigned char* bytes);
+			static void app_FUNCT_terminate_Program(void* obj);
+			static void app_FUNCT_pop_From_Stack_Of_Output(void* obj);
+			static void app_FUNCT_push_To_STACK_Of_Input(void* obj);
+			static bool dyn_REG_get_flag_isStackLoaded_Server_InputAction(void* obj);
+			static bool dyn_REG_get_flag_isStackLoaded_Server_OutputSend(void* obj);
+			static bool dyn_REG_get_flag_IsInitialised_OpenAvrilConcurrency(void* obj);
+			static unsigned char* dyn_REG_get_ptr_PraiseEventId(void* obj);
+			static unsigned char* dyn_REG_get_ptr_output_Value(void* obj);
+			static void dyn_REG_set_Item_input_Value_A(void* obj, unsigned char* bytes);
+			static void dyn_REG_set_Item_input_Value_B(void* obj, unsigned char* bytes);
+			static void dyn_REG_set_PraiseEventId(void* obj, unsigned char* bytes);
+			static void* dyn_PGM_get_program_WriteEnableStack_ServerInputAction(void* obj);
+			static void* dyn_PGM_get_program_WriteEnableStack_ServerOutputRecieve(void* obj);
+		private:
+			static void stat_CLASS_boot1_DEFINE_Framework();
+			static void stat_CLASS_boot3_INITIALISE_Framework();
+			static void* stat_CLASS_get_ptr_Framework_Server();
+		};
+	}
+}
