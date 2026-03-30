@@ -1,8 +1,10 @@
-﻿namespace OpenAvrilCFSD.ServerAssembly
+﻿using APP_Server_Assembly.threads;
+
+namespace OpenAvrilCFSD.ServerAssembly
 {
     public class Algorithms
     {
-        private OpenAvrilCFSD.ServerAssembly.IO_Listen_Respond _io_ListenRespond;
+        private IO_Listen_Respond _io_ListenRespond;
         private OpenAvrilCFSD.ServerAssembly.Praise_Files.User_Alg _user_Alg;
 
         public Algorithms(int numberOfCores) 
@@ -19,7 +21,7 @@
             Get_io_ListenRespond().InitialiseControl();
         }
 
-        public OpenAvrilCFSD.ServerAssembly.IO_Listen_Respond Get_io_ListenRespond()
+        public IO_Listen_Respond Get_io_ListenRespond()
         {
             return _io_ListenRespond;
         }
@@ -29,7 +31,7 @@
             return _user_Alg;
         }
 
-        private void Set_io_ListenRespond(OpenAvrilCFSD.ServerAssembly.IO_Listen_Respond value)
+        private void Set_io_ListenRespond(IO_Listen_Respond value)
         {
             _io_ListenRespond = value;
         }

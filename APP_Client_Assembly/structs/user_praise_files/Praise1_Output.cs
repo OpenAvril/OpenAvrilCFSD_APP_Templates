@@ -1,44 +1,87 @@
-﻿using OpenTK;
-
+﻿
 namespace OpenAvrilCFSD.ClientAssembly.structs.user_praise_files
 {
-    public class Praise1_Output
+    public struct Praise1_Output
     {
-        Vector3 _fowards;
-        Vector3 _up;
-        Vector3 _right;
+        static private double _stat_REG_Output_praise1_value;
+        // public.
+        public void dyn_REG_boot1_DECLAIRE_praise1_Output()
+        {
+            System.Console.WriteLine("entered stat_REG_boot1_DECLAIRE_praise1_Output().");//TESTBENCH
 
-        public Praise1_Output() 
-        {
-            _fowards = new Vector3(1f, 0f, 0f);
-            _up = new Vector3(0f, 1f, 0f);
-            _right = new Vector3(0f, 0f, 1f);
+            System.Console.WriteLine("exiting stat_REG_boot1_DECLAIRE_praise1_Output().");//TESTBENCH
         }
+        public void dyn_REG_boot1_DEFINE_praise1_Output()
+        {
+            System.Console.WriteLine("entered dyn_REG_boot1_DEFINE_praise1_Output().");//TESTBENCH
 
-        public Vector3 Get_fowards()
-        {
-            return _fowards;
+            System.Console.WriteLine("exiting dyn_REG_boot1_DEFINE_praise1_Output().");//TESTBENCH
         }
-        public Vector3 Get_right()
+        public void dyn_REG_boot2_SUBSTANTIATE_praise1_Output()
         {
-            return _fowards;
+            System.Console.WriteLine("entered dyn_REG_boot2_SUBSTANTIATE_praise1_Output().");//TESTBENCH
+            stat_REG_boot2_SUBSTANTIATE_praise1_value();
+            System.Console.WriteLine("exiting dyn_REG_boot2_SUBSTANTIATE_praise1_Output().");//TESTBENCH
         }
-        public Vector3 Get_up()
+        public void dyn_REG_boot3_INITIALISE_praise1_Output()
         {
-            return _fowards;
+            System.Console.WriteLine("entered dyn_REG_boot3_INITIALISE_praise1_Output().");//TESTBENCH
+            stat_REG_boot3_INITIALISE_praise1_value();
+            System.Console.WriteLine("exiting dyn_REG_boot3_INITIALISE_praise1_Output().");//TESTBENCH
         }
+        public double dyn_REG_get_praise1_value()
+        {
+            return stat_REG_get_praise1_value();
+        }
+        static public void dyn_REG_set_praise1_value(double newValue)
+        {
+            stat_REG_set_praise1_value(newValue);
+        }
+        public void dyn_PGM_boot4_INSTANCIATE_praise1_Output()
+        {
+            System.Console.WriteLine("entered dyn_PGM_boot4_INSTANCIATE_praise1_Output().");//TESTBENCH
 
-        public void Set_fowards(Vector3 fowards)
-        {
-            _fowards = fowards;
+            System.Console.WriteLine("exiting dyn_PGM_boot4_INSTANCIATE_praise1_Output().");//TESTBENCH
         }
-        public void Set_right(Vector3 right)
+        public void dyn_STRUCT_boot1_DECLAIRE_praise1_Output()
         {
-            _right = right;
-        }   
-        public void Set_up(Vector3 up)
+            System.Console.WriteLine("entered stat_STRUCT_boot1_DECLAIRE_praise1_Output().");//TESTBENCH
+
+            System.Console.WriteLine("exiting stat_STRUCT_boot1_DECLAIRE_praise1_Output().");//TESTBENCH
+        }
+        public void dyn_STRUCT_boot1_DEFINE_praise1_Output()
         {
-            _up = up;
+            System.Console.WriteLine("entered stat_STRUCT_boot1_DEFINE_praise1_Output().");//TESTBENCH
+
+            System.Console.WriteLine("exiting stat_STRUCT_boot1_DEFINE_praise1_Output().");//TESTBENCH
+        }
+        public void dyn_STRUCT_boot3_INITIALISE_praise1_Output()
+        {
+            System.Console.WriteLine("entered stat_STRUCT_boot3_INITIALISE_praise1_Output().");//TESTBENCH
+
+            System.Console.WriteLine("exiting stat_STRUCT_boot3_INITIALISE_praise1_Output().");//TESTBENCH
+        }
+        // private.
+        static private void stat_REG_boot2_SUBSTANTIATE_praise1_value()
+        {
+            System.Console.WriteLine("entered stat_REG_boot2_SUBSTANTIATE_praise1_valueA().");//TESTBENCH
+            _stat_REG_Output_praise1_value = new double();
+            _stat_REG_Output_praise1_value = double.MaxValue;
+            System.Console.WriteLine("exiting stat_REG_boot2_SUBSTANTIATE_praise1_valueA().");//TESTBENCH
+        }
+        static private void stat_REG_boot3_INITIALISE_praise1_value()
+        {
+            System.Console.WriteLine("entered stat_REG_boot3_INITIALISE_praise1_valueA().");//TESTBENCH
+            _stat_REG_Output_praise1_value = (float)(1.1);
+            System.Console.WriteLine("exiting stat_REG_boot3_INITIALISE_praise1_valueA().");//TESTBENCH
+        }
+        public double stat_REG_get_praise1_value()
+        {
+            return _stat_REG_Output_praise1_value;
+        }
+        static public void stat_REG_set_praise1_value(double newValue)
+        {
+            _stat_REG_Output_praise1_value = newValue;
         }
     }
 }

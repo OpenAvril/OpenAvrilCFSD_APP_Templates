@@ -1,12 +1,13 @@
-﻿using OpenTK;
+﻿using OpenAvrilCFSD.ServerAssembly;
+using OpenTK;
 using System.Threading;
 using Valve.Sockets;
 
-namespace OpenAvrilCFSD.ServerAssembly
+namespace APP_Server_Assembly.threads
 {
     public class IO_Listen_Respond
     {
-        private OpenAvrilCFSD.ServerAssembly.IO_Listen_Respond_Control _io_Control;
+        private IO_Listen_Respond_Control _io_Control;
 
         public IO_Listen_Respond()
         {
@@ -14,11 +15,11 @@ namespace OpenAvrilCFSD.ServerAssembly
         }
         public void InitialiseControl()
         {
-            Set_io_Control(new OpenAvrilCFSD.ServerAssembly.IO_Listen_Respond_Control());
+            Set_io_Control(new IO_Listen_Respond_Control());
             while (Get_io_Control() == null) { }
         }
 
-        public void Decode_NetworkingSteam_At_Server_Input(OpenAvrilCFSD.ServerAssembly.Framework_Server obj, OpenAvrilCFSD.ServerAssembly.Inputs.Input input, byte[] buffer)
+        public void Decode_NetworkingSteam_At_Server_Input(Framework_Server obj, OpenAvrilCFSD.ServerAssembly.Inputs.Input input, byte[] buffer)
         {
             input.Set_praiseEventId(buffer[0]);
             input.Set_in_playerId(buffer[1]);
@@ -36,7 +37,7 @@ namespace OpenAvrilCFSD.ServerAssembly
             }
         }
        
-        public void Encode_NetworkingSteam_At_Server_Output(OpenAvrilCFSD.ServerAssembly.Framework_Server obj, OpenAvrilCFSD.ServerAssembly.Outputs.Output output, byte[] data)
+        public void Encode_NetworkingSteam_At_Server_Output(Framework_Server obj, OpenAvrilCFSD.ServerAssembly.Outputs.Output output, byte[] data)
         {
             data[0] = output.Get_praiseEventId();
             data[1] = output.Get_out_playerId();

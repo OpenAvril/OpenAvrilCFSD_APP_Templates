@@ -4,75 +4,96 @@ namespace OpenAvrilCFSD.ClientAssembly.structs
 {
     public struct User_Alg
     {
-        private Praise0_Algorithm _praise0_Algorithm = null;
-        private Praise1_Algorithm _praise1_Algorithm = null;
-
-        public void dyn_REG_boot1_DEFINE_Execute()
+        static private Praise0_Algorithim _stat_STRUCT_Praise0_Algorithim;
+        static private Praise1_Algorithim _stat_STRUCT_Praise1_Algorithim;
+        static private Praise2_Algorithim _stat_STRUCT_Praise2_Algorithim;
+        // public.
+        public void dyn_REG_boot0_DECLAIRE_User_Alg()
         {
-            System.Console.WriteLine("entered dyn_REG_boot1_DEFINE_Execute().");//TESTBENCH
+            System.Console.WriteLine("entered stat_REG_boot0_DECLAIRE_User_Alg().");//TESTBENCH
 
-            System.Console.WriteLine("exiting dyn_REG_boot1_DEFINE_Execute().");//TESTBENCH
+            System.Console.WriteLine("exiting stat_REG_boot0_DECLAIRE_User_Alg().");//TESTBENCH
         }
-        public void dyn_REG_boot2_SUBSTANTIATE_Execute()
+        public void dyn_REG_boot1_DEFINE_User_Alg()
         {
-            System.Console.WriteLine("entered dyn_REG_boot2_SUBSTANTIATE_Execute().");//TESTBENCH
+            System.Console.WriteLine("entered dyn_REG_boot1_DEFINE_User_Alg().");//TESTBENCH
 
-            System.Console.WriteLine("exiting dyn_REG_boot2_SUBSTANTIATE_Execute().");//TESTBENCH
+            System.Console.WriteLine("exiting dyn_REG_boot1_DEFINE_User_Alg().");//TESTBENCH
         }
-        public void dyn_REG_boot3_INITIALISE_Execute()
+        public void dyn_REG_boot2_SUBSTANTIATE_User_Alg()
         {
-            System.Console.WriteLine("entered dyn_REG_boot3_INITIALISE_Execute().");//TESTBENCH
+            System.Console.WriteLine("entered dyn_REG_boot2_SUBSTANTIATE_User_Alg().");//TESTBENCH
 
-            System.Console.WriteLine("exiting dyn_REG_boot3_INITIALISE_Execute().");//TESTBENCH
+            System.Console.WriteLine("exiting dyn_REG_boot2_SUBSTANTIATE_User_Alg().");//TESTBENCH
         }
-        public void dyn_PGM_boot4_INSTANCIATE_Execute()
+        public void dyn_REG_boot3_INITIALISE_User_Alg()
         {
-            System.Console.WriteLine("entered dyn_PGM_boot4_INSTANCIATE_Execute().");//TESTBENCH
+            System.Console.WriteLine("entered dyn_REG_boot3_INITIALISE_User_Alg().");//TESTBENCH
 
-            System.Console.WriteLine("exiting dyn_PGM_boot4_INSTANCIATE_Execute().");//TESTBENCH
+            System.Console.WriteLine("exiting dyn_REG_boot3_INITIALISE_User_Alg().");//TESTBENCH
         }
-        static public void stat_CLASS_boot0_DECLAIRE_Execute()
+        public void dyn_PGM_boot4_INSTANCIATE_User_Alg()
         {
-            System.Console.WriteLine("entered stat_CLASS_boot0_DECLAIRE_Execute().");//TESTBENCH
+            System.Console.WriteLine("entered dyn_PGM_boot4_INSTANCIATE_User_Alg().");//TESTBENCH
 
-            System.Console.WriteLine("exiting stat_CLASS_boot0_DECLAIRE_Execute().");//TESTBENCH
+            System.Console.WriteLine("exiting dyn_PGM_boot4_INSTANCIATE_User_Alg().");//TESTBENCH
         }
-        static public void stat_CLASS_boot1_DEFINE_Execute()
+        public void dyn_STRUCT_boot0_DECLAIRE_User_Alg()
         {
-            System.Console.WriteLine("entered stat_CLASS_boot1_DEFINE_Execute().");//TESTBENCH
+            System.Console.WriteLine("entered stat_STRUCT_boot0_DECLAIRE_User_Alg().");//TESTBENCH
 
-            System.Console.WriteLine("exiting stat_CLASS_boot1_DEFINE_Execute().");//TESTBENCH
+            System.Console.WriteLine("exiting stat_STRUCT_boot0_DECLAIRE_User_Alg().");//TESTBENCH
         }
-        static public void stat_CLASS_boot3_INITIALISE_Execute()
+        public void dyn_STRUCT_boot1_DEFINE_User_Alg()
         {
-            System.Console.WriteLine("entered stat_CLASS_boot3_INITIALISE_Execute().");//TESTBENCH
+            System.Console.WriteLine("entered stat_STRUCT_boot1_DEFINE_User_Alg().");//TESTBENCH
 
-            System.Console.WriteLine("exiting stat_CLASS_boot3_INITIALISE_Execute().");//TESTBENCH
+            System.Console.WriteLine("exiting stat_STRUCT_boot1_DEFINE_User_Alg().");//TESTBENCH
         }
-        static public void stat_REG_boot0_DECLAIRE_Execute()
+        public void dyn_STRUCT_boot3_INITIALISE_User_Alg()
         {
-            System.Console.WriteLine("entered stat_REG_boot0_DECLAIRE_Execute().");//TESTBENCH
-
-            System.Console.WriteLine("exiting stat_REG_boot0_DECLAIRE_Execute().");//TESTBENCH
+            System.Console.WriteLine("entered stat_STRUCT_boot3_INITIALISE_User_Alg().");//TESTBENCH
+            stat_STRUCT_boot3_INITIALISE_praise0_Algorithim();
+            stat_STRUCT_boot3_INITIALISE_praise1_Algorithim();
+            stat_STRUCT_boot3_INITIALISE_praise2_Algorithim();
+            System.Console.WriteLine("exiting stat_STRUCT_boot3_INITIALISE_User_Alg().");//TESTBENCH
         }
-
-        public Praise0_Algorithm Get_praise0_Algorithm()
+        public Praise0_Algorithim dyn_STRUCT_get_Praise0_Algorithim()
         {
-            return _praise0_Algorithm;
+            return stat_STRUCT_get_Praise0_Algorithim();
         }
-
-        public Praise1_Algorithm Get_praise1_Algorithm()
+        public Praise1_Algorithim dyn_STRUCT_get_Praise1_Algorithim()
         {
-            return _praise1_Algorithm;
+            return stat_STRUCT_get_Praise1_Algorithim();
         }
-
-        private void Set_praise0_Algorithm(Praise0_Algorithm praise0_Algorithm)
+        public Praise2_Algorithim dyn_STRUCT_get_Praise2_Algorithim()
         {
-            _praise0_Algorithm = praise0_Algorithm;
+            return stat_STRUCT_get_Praise2_Algorithim();
         }
-        private void Set_praise1_Algorithm(Praise1_Algorithm praise1_Algorithm)
+        // private.
+        static private void stat_STRUCT_boot3_INITIALISE_praise0_Algorithim()
         {
-            _praise1_Algorithm = praise1_Algorithm;
+            _stat_STRUCT_Praise0_Algorithim = new Praise0_Algorithim();
+        }
+        static private void stat_STRUCT_boot3_INITIALISE_praise1_Algorithim()
+        {
+            _stat_STRUCT_Praise1_Algorithim = new Praise1_Algorithim();
+        }
+        static private void stat_STRUCT_boot3_INITIALISE_praise2_Algorithim()
+        {
+            _stat_STRUCT_Praise2_Algorithim = new Praise2_Algorithim();
+        }
+        static private Praise0_Algorithim stat_STRUCT_get_Praise0_Algorithim()
+        {
+            return _stat_STRUCT_Praise0_Algorithim;
+        }
+        static private Praise1_Algorithim stat_STRUCT_get_Praise1_Algorithim()
+        {
+            return _stat_STRUCT_Praise1_Algorithim;
+        }
+        static private Praise2_Algorithim stat_STRUCT_get_Praise2_Algorithim()
+        {
+            return _stat_STRUCT_Praise2_Algorithim;
         }
     }
 }

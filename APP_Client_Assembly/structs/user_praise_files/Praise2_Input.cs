@@ -6,65 +6,103 @@ using System.Threading.Tasks;
 
 namespace OpenAvrilCFSD.ClientAssembly.structs.user_praise_files
 {
-    public class Praise2_Input
+    public struct Praise2_Input
     {
-        static private bool _fowards;
-        static private bool _backwards;
-        static private bool _left;
-        static private bool _right;
-        static private float period;
+        static private float _Stat_REG_Input_praise2_valueA;
+        static private float _Stat_REG_Input_praise2_valueB;
+        // public.
+        public void dyn_REG_boot2_DECLAIRE_praise2_Input()
+        {
+            System.Console.WriteLine("entered stat_REG_boot2_DECLAIRE_praise2_Input().");//TESTBENCH
 
-        public Praise2_Input()
-        {
-            _fowards = false;
-            _backwards = false;
-            _left = false;
-            _right = false;
-            period = 0;
+            System.Console.WriteLine("exiting stat_REG_boot2_DECLAIRE_praise2_Input().");//TESTBENCH
         }
+        public void dyn_REG_boot1_DEFINE_praise2_Input()
+        {
+            System.Console.WriteLine("entered dyn_REG_boot1_DEFINE_praise2_Input().");//TESTBENCH
 
-        public bool Get_Fowards()
-        {
-            return _fowards;
+            System.Console.WriteLine("exiting dyn_REG_boot1_DEFINE_praise2_Input().");//TESTBENCH
         }
-        public bool Get_Backwards()
+        public void dyn_REG_boot2_SUBSTANTIATE_praise2_Input()
         {
-            return _backwards;
+            System.Console.WriteLine("entered dyn_REG_boot2_SUBSTANTIATE_praise2_Input().");//TESTBENCH
+            stat_REG_boot2_SUBSTANTIATE_praise2_valueA();
+            stat_REG_boot2_SUBSTANTIATE_praise2_valueB();
+            System.Console.WriteLine("exiting dyn_REG_boot2_SUBSTANTIATE_praise2_Input().");//TESTBENCH
         }
-        public bool Get_Left()
+        public void dyn_REG_boot3_INITIALISE_praise2_Input()
         {
-            return _left;
+            System.Console.WriteLine("entered dyn_REG_boot3_INITIALISE_praise2_Input().");//TESTBENCH
+            stat_REG_boot3_INITIALISE_praise2_valueA();
+            stat_REG_boot3_INITIALISE_praise2_valueB();
+            System.Console.WriteLine("exiting dyn_REG_boot3_INITIALISE_praise2_Input().");//TESTBENCH
         }
-        public bool Get_Right()
+        public float dyn_REG_get_praise2_valuea()
         {
-            return _right;
+            return stat_REG_get_praise2_valueA();
         }
+        public float dyn_REG_get_praise2_valueB()
+        {
+            return stat_REG_get_praise2_valueB();
+        }
+        public void dyn_PGM_boot4_INSTANCIATE_praise2_Input()
+        {
+            System.Console.WriteLine("entered dyn_PGM_boot4_INSTANCIATE_praise2_Input().");//TESTBENCH
 
-        public float GetPeriod()
-        {
-            return period;
+            System.Console.WriteLine("exiting dyn_PGM_boot4_INSTANCIATE_praise2_Input().");//TESTBENCH
         }
+        public void dyn_STRUCT_boot2_DECLAIRE_praise2_Input()
+        {
+            System.Console.WriteLine("entered stat_STRUCT_boot2_DECLAIRE_praise2_Input().");//TESTBENCH
 
-        public void Set_Fowards(bool value)
-        {
-            _fowards = value;
+            System.Console.WriteLine("exiting stat_STRUCT_boot2_DECLAIRE_praise2_Input().");//TESTBENCH
         }
-        public void Set_Backwards(bool value)
+        public void dyn_STRUCT_boot1_DEFINE_praise2_Input()
         {
-            _backwards = value;
-        }
-        public void Set_Left(bool value)
-        {
-            _left = value;
-        }
-        public void Set_Right(bool value)
-        {
-            _right = value;
-        }
+            System.Console.WriteLine("entered stat_STRUCT_boot1_DEFINE_praise2_Input().");//TESTBENCH
 
-        public void Set_Period(float value)
+            System.Console.WriteLine("exiting stat_STRUCT_boot1_DEFINE_praise2_Input().");//TESTBENCH
+        }
+        public void dyn_STRUCT_boot3_INITIALISE_praise2_Input()
         {
-            period = value;
+            System.Console.WriteLine("entered stat_STRUCT_boot3_INITIALISE_praise2_Input().");//TESTBENCH
+
+            System.Console.WriteLine("exiting stat_STRUCT_boot3_INITIALISE_praise2_Input().");//TESTBENCH
+        }
+        // private.
+        static private void stat_REG_boot2_SUBSTANTIATE_praise2_valueA()
+        {
+            System.Console.WriteLine("entered stat_REG_boot2_SUBSTANTIATE_praise2_valueA().");//TESTBENCH
+            _Stat_REG_Input_praise2_valueA = new float();
+            _Stat_REG_Input_praise2_valueA = float.MaxValue;
+            System.Console.WriteLine("exiting stat_REG_boot2_SUBSTANTIATE_praise2_valueA().");//TESTBENCH
+        }
+        static private void stat_REG_boot2_SUBSTANTIATE_praise2_valueB()
+        {
+            System.Console.WriteLine("entered stat_REG_boot2_SUBSTANTIATE_praise2_valueB().");//TESTBENCH
+            _Stat_REG_Input_praise2_valueB = new float();
+            _Stat_REG_Input_praise2_valueB = float.MaxValue;
+            System.Console.WriteLine("exiting stat_REG_boot2_SUBSTANTIATE_praise2_valueB().");//TESTBENCH
+        }
+        static private void stat_REG_boot3_INITIALISE_praise2_valueA()
+        {
+            System.Console.WriteLine("entered stat_REG_boot3_INITIALISE_praise2_valueA().");//TESTBENCH
+            _Stat_REG_Input_praise2_valueA = (float)(2.2);
+            System.Console.WriteLine("exiting stat_REG_boot3_INITIALISE_praise2_valueA().");//TESTBENCH
+        }
+        static private void stat_REG_boot3_INITIALISE_praise2_valueB()
+        {
+            System.Console.WriteLine("entered stat_REG_boot3_INITIALISE_praise2_valueB().");//TESTBENCH
+            _Stat_REG_Input_praise2_valueB = (float)(2.2);
+            System.Console.WriteLine("exiting stat_REG_boot3_INITIALISE_praise2_valueB().");//TESTBENCH
+        }
+        public float stat_REG_get_praise2_valueA()
+        {
+            return _Stat_REG_Input_praise2_valueA;
+        }
+        public float stat_REG_get_praise2_valueB()
+        {
+            return _Stat_REG_Input_praise2_valueB;
         }
     }
 }

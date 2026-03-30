@@ -1,4 +1,4 @@
-﻿using APP_ClientAssembly.structs;
+﻿using OpenAvrilCFSD.ClientAssembly.structs;
 
 namespace OpenAvrilCFSD.ClientAssembly
 {
