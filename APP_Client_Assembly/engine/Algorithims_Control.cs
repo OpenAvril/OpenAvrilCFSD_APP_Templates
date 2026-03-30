@@ -20,11 +20,11 @@ namespace OpenAvrilCFSD.ClientAssembly
             switch (praiseEventId)
             {
             case 0:
-                obj.Get_client().stat_CLASS_get_algorithms().Get_concurrent(concurrentCoreId).Set_Algorithm_Subset(obj.Get_client().stat_CLASS_get_algorithms().Get_user_Alg().Get_praise0_Algorithm());
+                obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_algorithms().Get_concurrent(concurrentCoreId).Set_Algorithm_Subset(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_algorithms().Get_user_Alg().Get_praise0_Algorithm());
                 break;
 
             case 1:
-                obj.Get_client().stat_CLASS_get_algorithms().Get_concurrent(concurrentCoreId).Set_Algorithm_Subset(obj.Get_client().stat_CLASS_get_algorithms().Get_user_Alg().Get_praise1_Algorithm());
+                obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_algorithms().Get_concurrent(concurrentCoreId).Set_Algorithm_Subset(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_algorithms().Get_user_Alg().Get_praise1_Algorithm());
                 break;
 
             }

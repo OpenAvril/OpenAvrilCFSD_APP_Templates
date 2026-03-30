@@ -23,16 +23,16 @@ namespace OpenAvrilCFSD.ClientAssembly
             bool isInitialised = false;
             for (byte index = 0; index < _flag_ThreadInitialised.Length; index++)
             {
-                if (obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Get_flag_ThreadInitialised(index) == true)
+                if (obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().dyn_CLASS_get_execute_Control().Get_flag_ThreadInitialised(index) == true)
                 {
                     isInitialised = true;
                 }
             }
             if (isInitialised == false)
             {
-                obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Set_exitApplication(false);
+                obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().dyn_CLASS_get_execute_Control().Set_exitApplication(false);
             }
-            obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Set_flag_SystemInitialised(isInitialised);
+            obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().dyn_CLASS_get_execute_Control().Set_flag_SystemInitialised(isInitialised);
         }
         public bool Get_exitApplication()
         {

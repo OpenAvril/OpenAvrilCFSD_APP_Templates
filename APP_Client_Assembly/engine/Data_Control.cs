@@ -19,8 +19,8 @@ namespace OpenAvrilCFSD.ClientAssembly
         }
         public void Initialise(OpenAvrilCFSD.ClientAssembly.Framework_Client obj)
         {
-            _isPraiseActive = new bool[obj.Get_client().stat_CLASS_get_global().Get_stat_REG_numberOfPraises()];
-            for (int index = 0; index < obj.Get_client().stat_CLASS_get_global().Get_stat_REG_numberOfPraises(); index++)
+            _isPraiseActive = new bool[obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_global().Get_stat_REG_numberOfPraises()];
+            for (int index = 0; index < obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_global().Get_stat_REG_numberOfPraises(); index++)
             {
                 Set_isPraiseActive(index, false);
             }
@@ -42,12 +42,12 @@ namespace OpenAvrilCFSD.ClientAssembly
             stack_Client_InputSend.Add(BACK_inputDoubleBuffer);
             if(stack_Client_InputSend.Count > 1)
             {
-                obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Set_flag_IsLoaded_Stack_InputAction(true);
+                obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Set_flag_IsLoaded_Stack_InputAction(true);
                 System.Console.WriteLine("Set_flag_IsLoaded_Stack_InputAction = true, " + "stack.count = " + stack_Client_InputSend.Count);//TestBench
             }
             else
             {
-                obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Set_flag_IsLoaded_Stack_InputAction(false);
+                obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Set_flag_IsLoaded_Stack_InputAction(false);
                 System.Console.WriteLine("Set_flag_IsLoaded_Stack_InputAction = false, " + "stack.count = " + stack_Client_InputSend.Count);//TestBench
             }
             System.Console.WriteLine("exiting => Push_Stack_Client_InputAction()");//TestBench
@@ -60,11 +60,11 @@ namespace OpenAvrilCFSD.ClientAssembly
             stack_Client_OutputRecieves.Add(FRONT_outputDoubleBuffer);
             if (stack_Client_OutputRecieves.Count >= 2)
             {
-                obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Set_flag_IsLoaded_Stack_OutputRecieve(true);
+                obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Set_flag_IsLoaded_Stack_OutputRecieve(true);
             }
             else
             {
-                obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Set_flag_IsLoaded_Stack_OutputRecieve(false);
+                obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Set_flag_IsLoaded_Stack_OutputRecieve(false);
             }
         }
         public void Pop_Stack_InputAction(OpenAvrilCFSD.ClientAssembly.Framework_Client obj,
@@ -76,11 +76,11 @@ namespace OpenAvrilCFSD.ClientAssembly
             stack_Client_InputSend.RemoveAt(1);
             if (stack_Client_InputSend.Count >= 2)
             {
-                obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Set_flag_IsLoaded_Stack_InputAction(true);
+                obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Set_flag_IsLoaded_Stack_InputAction(true);
             }
             else
             {
-                obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Set_flag_IsLoaded_Stack_InputAction(false);
+                obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Set_flag_IsLoaded_Stack_InputAction(false);
             }
         }
         public void Pop_Stack_OutputRecieve(OpenAvrilCFSD.ClientAssembly.Framework_Client obj,
@@ -92,11 +92,11 @@ namespace OpenAvrilCFSD.ClientAssembly
             stack_Client_OutputRecieves.RemoveAt(1);
             if (stack_Client_OutputRecieves.Count >= 2)
             {
-                obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Set_flag_IsLoaded_Stack_OutputRecieve(true);
+                obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Set_flag_IsLoaded_Stack_OutputRecieve(true);
             }
             else
             {
-                obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Set_flag_IsLoaded_Stack_OutputRecieve(false);
+                obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Set_flag_IsLoaded_Stack_OutputRecieve(false);
             }
         }
 
@@ -109,10 +109,10 @@ namespace OpenAvrilCFSD.ClientAssembly
 
                 case 1:
                     var output_Subset_Praise1 = (Praise1_Output)stackSlot.Get_praiseOutputBuffer_Subset();
-                    obj.Get_client().Get_stat_CLASS_data().Get_gameInstance().Get_gameObjectFactory().Get_player().Get_CameraFP().Set_fowards(output_Subset_Praise1.Get_fowards());
-                    obj.Get_client().Get_stat_CLASS_data().Get_gameInstance().Get_gameObjectFactory().Get_player().Get_CameraFP().Set_right(output_Subset_Praise1.Get_right());
-                    obj.Get_client().Get_stat_CLASS_data().Get_gameInstance().Get_gameObjectFactory().Get_player().Get_CameraFP().Set_up(output_Subset_Praise1.Get_up());
-                    obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Set_isPraiseActive(1, false);
+                    obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_gameInstance().Get_gameObjectFactory().Get_player().Get_CameraFP().Set_fowards(output_Subset_Praise1.Get_fowards());
+                    obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_gameInstance().Get_gameObjectFactory().Get_player().Get_CameraFP().Set_right(output_Subset_Praise1.Get_right());
+                    obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_gameInstance().Get_gameObjectFactory().Get_player().Get_CameraFP().Set_up(output_Subset_Praise1.Get_up());
+                    obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Set_isPraiseActive(1, false);
                     break;
             }
         }

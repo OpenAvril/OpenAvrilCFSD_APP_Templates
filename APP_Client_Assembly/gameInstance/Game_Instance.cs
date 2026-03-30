@@ -134,7 +134,7 @@ namespace OpenAvrilCFSD.ClientAssembly
             Closed += OnClosed;
 
             OpenAvrilCFSD.ClientAssembly.Framework_Client obj = OpenAvrilCFSD.ClientAssembly.Program.stat_CLASS_get_framework_Client();
-            obj.Get_client().stat_CLASS_get_execute().Initialise_Threads(obj);
+            obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Initialise_Threads(obj);
 
             System.Console.WriteLine("OnLoad .. done");
         }
@@ -149,8 +149,8 @@ namespace OpenAvrilCFSD.ClientAssembly
         {
             System.Console.WriteLine("Exit called");
             OpenAvrilCFSD.ClientAssembly.Framework_Client obj = OpenAvrilCFSD.ClientAssembly.Program.stat_CLASS_get_framework_Client();
-            obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Set_exitApplication(true);
-            obj.Get_client().stat_CLASS_get_execute().Get_networking_Client().DeInitialise_networking_Server();
+            obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().dyn_CLASS_get_execute_Control().Set_exitApplication(true);
+            obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_networking_Client().DeInitialise_networking_Server();
             _gameObjectFactory.Dispose();
             _solidProgram.Dispose();
             _texturedProgram.Dispose();
@@ -171,13 +171,13 @@ namespace OpenAvrilCFSD.ClientAssembly
         protected override void OnUpdateFrame(FrameEventArgs e)
         {
             OpenAvrilCFSD.ClientAssembly.Framework_Client obj = Program.stat_CLASS_get_framework_Client();
-            if (obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Get_exitApplication() == false)
+            if (obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().dyn_CLASS_get_execute_Control().Get_exitApplication() == false)
             {
-                Console.WriteLine("TESTBENCH => Get_exitApplication() = " + obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Get_exitApplication());
-                OpenAvrilCFSD.Library_For_WriteEnableForThreadsAt_CLIENTINPUTACTION.Write_Start(obj.Get_client().stat_CLASS_get_execute().Get_program_WriteQue_C_IA(), 0);
+                Console.WriteLine("TESTBENCH => Get_exitApplication() = " + obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().dyn_CLASS_get_execute_Control().Get_exitApplication());
+                OpenAvrilCFSD.Library_For_WriteEnableForThreadsAt_CLIENTINPUTACTION.Write_Start(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_WriteQue_C_IA(), 0);
                 HandleKeyboard(obj, e.Time);
                 HandleMouse(obj);
-                OpenAvrilCFSD.Library_For_WriteEnableForThreadsAt_CLIENTINPUTACTION.Write_End(obj.Get_client().stat_CLASS_get_execute().Get_program_WriteQue_C_IA(), 0);
+                OpenAvrilCFSD.Library_For_WriteEnableForThreadsAt_CLIENTINPUTACTION.Write_End(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_WriteQue_C_IA(), 0);
                 _time += e.Time;
                 foreach (var item in _gameObjects)
                 {
@@ -199,20 +199,20 @@ namespace OpenAvrilCFSD.ClientAssembly
         {
             //Console.WriteLine("TESTBENCH => HandleMouse");
             MouseState mouseState = Mouse.GetCursorState();
-            var buffer = obj.Get_client().Get_stat_CLASS_data().Get_input_Instnace().Get_FRONT_inputDoubleBuffer(obj);
-            //Console.WriteLine("Get_isPraiseActive() = " + obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Get_isPraiseActive(1));
-            if (obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Get_isPraiseActive(1) == false)
+            var buffer = obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_input_Instnace().Get_FRONT_inputDoubleBuffer(obj);
+            //Console.WriteLine("Get_isPraiseActive() = " + obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Get_isPraiseActive(1));
+            if (obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Get_isPraiseActive(1) == false)
             {
                 Console.WriteLine("TESTBENCH => Do PRAISE 1 start");
-                obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Set_isPraiseActive(1, true);
+                obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Set_isPraiseActive(1, true);
                 buffer.Set_playerId(0);
                 buffer.Set_praiseEventId(1);
                 buffer.Get_input_Control().SelectSetIntputSubset(obj, buffer.Get_praiseEventId());
                 var subset = (Praise1_Input)buffer.Get_praiseInputBuffer_Subset();
                 subset.Set_Mouse_X(mouseState.X);
                 subset.Set_Mouse_Y(mouseState.Y);
-                obj.Get_client().Get_stat_CLASS_data().Flip_InBufferToWrite();
-                obj.Get_client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Push_Stack_Client_InputAction(obj, obj.Get_client().Get_stat_CLASS_data().Get_input_Instnace().Get_stat_REG_Stack_At_Client_InputSend_List_Of_Input(), obj.Get_client().Get_stat_CLASS_data().Get_input_Instnace().Get_BACK_inputDoubleBuffer(obj));
+                obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Flip_InBufferToWrite();
+                obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Push_Stack_Client_InputAction(obj, obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_input_Instnace().Get_stat_REG_Stack_At_Client_InputSend_List_Of_Input(), obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_input_Instnace().Get_BACK_inputDoubleBuffer(obj));
                 Console.WriteLine("TESTBENCH => Do PRAISE 1 end");
             }
         }

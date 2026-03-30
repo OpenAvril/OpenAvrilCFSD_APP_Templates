@@ -11,7 +11,7 @@ namespace OpenAvrilCFSD.ClientAssembly
         private IntPtr programId_WriteQue_C_IA;
         private IntPtr programId_WriteQue_C_OR;
 
-        private Thread[] _threads = {null, null, null, null, null, null};//number of app shell threads.
+        private Thread[] _threads = {null, null, null, null};//number of app shell threads.
 
         public Execute(int numberOfCores) 
         {
@@ -80,7 +80,7 @@ namespace OpenAvrilCFSD.ClientAssembly
         public void Initialise_Control(int numberOfCores, Global global)
         {
             Set_stat_CLASS_execute_Control(new OpenAvrilCFSD.ClientAssembly.Execute_Control(numberOfCores));
-            while (stat_CLASS_get_execute_Control() == null) { }
+            while (dyn_CLASS_get_execute_Control() == null) { }
         }
 
         public void Initialise_NetworkingPipes(OpenAvrilCFSD.ClientAssembly.Framework_Client obj)
@@ -91,33 +91,33 @@ namespace OpenAvrilCFSD.ClientAssembly
 
         public void Initialise_Libraries()
         {
-            programId_ConcurrentQue_C = OpenAvrilCFSD.Library_For_LaunchEnableForConcurrentThreadsAt_CLIENT.Initialise_LaunchEnableForConcurrentThreadsAt();
+            programId_ConcurrentQue_C = OpenAvrilCFSD.ImportCLIBLaunchEnableForConcurrentThreadsAtCLIENT.app_FUNCT_generate_Program();
             System.Console.WriteLine("created Library_For_LaunchEnableForConcurrentThreadsAt_CLIENT");
 
-            programId_WriteQue_C_IA = OpenAvrilCFSD.Library_For_WriteEnableForThreadsAt_CLIENTINPUTACTION.Initialise_WriteEnable();
+            programId_WriteQue_C_IA = OpenAvrilCFSD.ImportCLIBWriteEnableForThreadsAtCLIENTINPUTACTION.app_FUNCT_generate_Program();
             System.Console.WriteLine("created Library_For_WriteEnableForThreadsAt_CLIENTINPUTACTION");
 
-            programId_WriteQue_C_OR = OpenAvrilCFSD.Library_For_WriteEnableForThreadsAt_CLIENTOUTPUTRECIEVE.Initialise_WriteEnable();
+            programId_WriteQue_C_OR = OpenAvrilCFSD.ImportCLIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE.app_FUNCT_generate_Program();
             System.Console.WriteLine("created Library_For_WriteEnableForThreadsAt_CLIENTOUTPUTRECIEVE");
 
         }
         public void Initialise_Threads(OpenAvrilCFSD.ClientAssembly.Framework_Client obj)
         {
             byte threadIdCounter = 0;
-            obj.Get_client().stat_CLASS_get_execute().Set_thread(threadIdCounter, Thread.CurrentThread);
-            obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Set_flag_ThreadInitialised(obj, threadIdCounter, false);
+            obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Set_thread(threadIdCounter, Thread.CurrentThread);
+            obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().dyn_CLASS_get_execute_Control().Set_flag_ThreadInitialised(obj, threadIdCounter, false);
             System.Console.WriteLine("Thread Initalised => CurrentThread()" + (threadIdCounter).ToString());//TESTBENCH
 
             threadIdCounter++;
-            obj.Get_client().stat_CLASS_get_execute().Set_thread(threadIdCounter, new Thread(() => _networking_Client.Thread_IO_Client(threadIdCounter)));
-            obj.Get_client().stat_CLASS_get_execute().Get_thread(threadIdCounter).Start();
+            obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Set_thread(threadIdCounter, new Thread(() => _networking_Client.Thread_IO_Client(threadIdCounter)));
+            obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_thread(threadIdCounter).Start();
             System.Console.WriteLine("Thread Initalised => Thread_IO_Client on core " + (threadIdCounter).ToString());//TESTBENCH
 
             threadIdCounter++;
-            while (threadIdCounter < obj.Get_client().stat_CLASS_get_global().Get_numberOfCores())
+            while (threadIdCounter < obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_global().dyn_REG_get_numberOfCores())
             {
-                obj.Get_client().stat_CLASS_get_execute().Set_thread(threadIdCounter, new Thread(() => obj.Get_client().stat_CLASS_get_algorithms().Get_concurrent((byte)(threadIdCounter - (byte)2)).Thread_Concurrent(threadIdCounter)));
-                obj.Get_client().stat_CLASS_get_execute().Get_thread(threadIdCounter).Start();
+                obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Set_thread(threadIdCounter, new Thread(() => obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_algorithms().Get_concurrent((byte)(threadIdCounter - (byte)2)).Thread_Concurrent(threadIdCounter)));
+                obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_thread(threadIdCounter).Start();
                 System.Console.WriteLine("Thread Initalised => Thread_Concurrent on core " + (threadIdCounter).ToString());//TESTBENCH
                 threadIdCounter++;
             }
@@ -128,11 +128,11 @@ namespace OpenAvrilCFSD.ClientAssembly
             System.Console.WriteLine("starting = > gameInstance");//TESTBENCH
             using (OpenAvrilCFSD.ClientAssembly.Game_Instance gameInstance = new OpenAvrilCFSD.ClientAssembly.Game_Instance())
             {
-                gameInstance.Run(obj.Get_client().Get_stat_CLASS_data().Get_settings().Get_refreshRate());
+                gameInstance.Run(obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_settings().Get_refreshRate());
             }
         }
 
-        public OpenAvrilCFSD.ClientAssembly.Execute_Control stat_CLASS_get_execute_Control()
+        public OpenAvrilCFSD.ClientAssembly.Execute_Control dyn_CLASS_get_execute_Control()
         {
             return _stat_CLASS_execute_Control;
         }

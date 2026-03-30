@@ -50,11 +50,11 @@ namespace OpenAvrilCFSD.ClientAssembly
         }
         public Output Get_FRONT_outputDoubleBuffer(OpenAvrilCFSD.ClientAssembly.Framework_Client obj)
         {
-            return _stat_REG_doublebuffer_Client_OutputRecieve[BoolToInt16(obj.Get_client().Get_stat_CLASS_data().Get_state_Buffer_Output_ToWrite())];
+            return _stat_REG_doublebuffer_Client_OutputRecieve[BoolToInt16(obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_state_Buffer_Output_ToWrite())];
         }
         public Output Get_BACK_outputDoubleBuffer(OpenAvrilCFSD.ClientAssembly.Framework_Client obj)
         {
-            return _stat_REG_doublebuffer_Client_OutputRecieve[BoolToInt16(!obj.Get_client().Get_stat_CLASS_data().Get_state_Buffer_Output_ToWrite())];
+            return _stat_REG_doublebuffer_Client_OutputRecieve[BoolToInt16(!obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_state_Buffer_Output_ToWrite())];
         }
 
         public List<Output> Get_stat_REG_Stack_At_Client_OutputRecieve_List_Of_Output()
@@ -63,11 +63,11 @@ namespace OpenAvrilCFSD.ClientAssembly
         }
         public Input Get_FRONT_inputDoubleBuffer(OpenAvrilCFSD.ClientAssembly.Framework_Client obj)
         {
-            return _stat_REG_doublebuffer_Client_InputSend[BoolToInt16(obj.Get_client().Get_stat_CLASS_data().Get_state_Buffer_Input_ToWrite())];
+            return _stat_REG_doublebuffer_Client_InputSend[BoolToInt16(obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_state_Buffer_Input_ToWrite())];
         }
         public Input Get_BACK_inputDoubleBuffer(OpenAvrilCFSD.ClientAssembly.Framework_Client obj)
         {
-            return _stat_REG_doublebuffer_Client_InputSend[BoolToInt16(!obj.Get_client().Get_stat_CLASS_data().Get_state_Buffer_Input_ToWrite())];
+            return _stat_REG_doublebuffer_Client_InputSend[BoolToInt16(!obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_state_Buffer_Input_ToWrite())];
         }
         public List<Input> Get_stat_REG_Stack_At_Client_InputSend_List_Of_Input()
         {
@@ -75,7 +75,7 @@ namespace OpenAvrilCFSD.ClientAssembly
         }
         public void Set_inputDoubleBuffer(OpenAvrilCFSD.ClientAssembly.Framework_Client obj, Input value)
         {
-            _stat_REG_doublebuffer_Client_InputSend[BoolToInt16(obj.Get_client().Get_stat_CLASS_data().Get_state_Buffer_Input_ToWrite())] = value;
+            _stat_REG_doublebuffer_Client_InputSend[BoolToInt16(obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_state_Buffer_Input_ToWrite())] = value;
         }
         private void Set_stat_REG_Buffer_Reference_For_Core_Of_Output(byte concurrenctCoreId, Output input_Instance)
         {

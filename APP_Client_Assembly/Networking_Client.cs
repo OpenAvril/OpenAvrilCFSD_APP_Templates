@@ -34,21 +34,22 @@ namespace OpenAvrilCFSD.ClientAssembly
         {
             OpenAvrilCFSD.ClientAssembly.Framework_Client obj = OpenAvrilCFSD.ClientAssembly.Program.stat_CLASS_get_framework_Client();
             bool doneOnce = false;
-            while (obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Get_flag_SystemInitialised() == true)
+            while (obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().dyn_CLASS_get_execute_Control().Get_flag_SystemInitialised() == true)
             {
                 if (doneOnce == false)
                 {
                     doneOnce = true;
-                    obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Set_flag_ThreadInitialised(obj, threadId, false);
+                    obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().dyn_CLASS_get_execute_Control().Set_flag_ThreadInitialised(obj, threadId, false);
                 }
             }
-            while (obj.Get_client().stat_CLASS_get_execute().stat_CLASS_get_execute_Control().Get_exitApplication() == false)
+            while (obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().dyn_CLASS_get_execute_Control().Get_exitApplication() == false)
             {
                 NetworkingSockets client = new NetworkingSockets();
 
                 uint connection = 0;
 
-                StatusCallback status = (ref StatusInfo info) => {
+                StatusCallback status = (ref StatusInfo info) =>
+                {
                     switch (info.connectionInfo.state)
                     {
                         case ConnectionState.None:
@@ -109,8 +110,9 @@ namespace OpenAvrilCFSD.ClientAssembly
                     Thread.Sleep(15);
                 }
             }
+        }
 
-        public NetworkingSockets Get_client_SOCKET()
+        public NetworkingSockets dyn_CLASS_get_app_Client_SOCKET()
         {
             return _client_SOCKET;
         }

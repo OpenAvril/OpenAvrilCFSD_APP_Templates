@@ -7,34 +7,34 @@
         {
             byte _concurrentThreadId = (byte)(threadId - 1);
             bool doneOnce_A = false;
-            while (obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().stat_CLASS_get_execute_Control().Get_flag_SystemInitialised() == true)
+            while (obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().dyn_CLASS_get_execute_Control().Get_flag_SystemInitialised() == true)
             {
                 if (doneOnce_A == false)
                 {
                     doneOnce_A = true;
-                    obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().stat_CLASS_get_execute_Control().Set_flag_ThreadInitialised(obj, threadId, false);
+                    obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().dyn_CLASS_get_execute_Control().Set_flag_ThreadInitialised(obj, threadId, false);
                 }
             }
-            while (obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().stat_CLASS_get_execute_Control().Get_exitApplication() == false)
+            while (obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().dyn_CLASS_get_execute_Control().Get_exitApplication() == false)
             {
-                if (obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_stat_CLASS_data_Control().Get_flag_IsLoaded_Stack_OutputRecieve())
+                if (obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Get_flag_IsLoaded_Stack_OutputRecieve())
                 {
-                    Console.WriteLine("Thread[" + threadId.ToString() + "] => Get_flag_IsLoaded_Stack_OutputRecieve = " + obj.dyn_CLASS_get_app_Client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Get_flag_IsLoaded_Stack_OutputRecieve());//TestBench
-                    OpenAvrilCFSD.Library_For_WriteEnableForThreadsAt_CLIENTOUTPUTRECIEVE.Write_Start(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_WriteQue_C_OR(), (byte)(_concurrentThreadId + 1));
-                    obj.dyn_CLASS_get_app_Client().stat_CLASS_get_algorithms().Get_concurrent(_concurrentThreadId).Get_concurrent_Control().SelectSet_Algorithm_Subset(obj, obj.dyn_CLASS_get_app_Client().Get_stat_CLASS_data().Get_output_Instnace().Get_BACK_outputDoubleBuffer(obj).Get_praiseEventId(), _concurrentThreadId);
-                    obj.dyn_CLASS_get_app_Client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Pop_Stack_OutputRecieve(obj, obj.dyn_CLASS_get_app_Client().Get_stat_CLASS_data().Get_output_Instnace().Get_BACK_outputDoubleBuffer(obj), obj.dyn_CLASS_get_app_Client().Get_stat_CLASS_data().Get_output_Instnace().Get_stat_REG_Stack_At_Client_OutputRecieve_List_Of_Output());
-                    obj.dyn_CLASS_get_app_Client().Get_stat_CLASS_data().Flip_OutBufferToWrite();
-                    obj.dyn_CLASS_get_app_Client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Do_Store_PraiseOutputRecieve_To_GameInstanceData(obj, obj.dyn_CLASS_get_app_Client().Get_stat_CLASS_data().Get_output_Instnace().Get_stat_REG_Stack_At_Client_OutputRecieve_List_Of_Output().ElementAt(1));
-                    obj.dyn_CLASS_get_app_Client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Set_isPraiseActive(obj.dyn_CLASS_get_app_Client().Get_stat_CLASS_data().Get_output_Instnace().Get_FRONT_outputDoubleBuffer(obj).Get_praiseEventId(), false);
-                    OpenAvrilCFSD.Library_For_LaunchEnableForConcurrentThreadsAt_CLIENT.Thread_End(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_ConcurrentQue_C(), _concurrentThreadId);
-                    if (obj.dyn_CLASS_get_app_Client().Get_stat_CLASS_data().Get_stat_CLASS_data_Control().Get_flag_IsLoaded_Stack_OutputRecieve())
+                    Console.WriteLine("Thread[" + threadId.ToString() + "] => Get_flag_IsLoaded_Stack_OutputRecieve = " + obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Get_flag_IsLoaded_Stack_OutputRecieve());//TestBench
+                    OpenAvrilCFSD.ImportCLIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE.app_FUNCT_write_Start(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_WriteQue_C_OR(), (byte)(_concurrentThreadId + 1));
+                    obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_algorithms().Get_concurrent(_concurrentThreadId).Get_concurrent_Control().SelectSet_Algorithm_Subset(obj, obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_output_Instnace().Get_BACK_outputDoubleBuffer(obj).Get_praiseEventId(), _concurrentThreadId);
+                    obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Pop_Stack_OutputRecieve(obj, obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_output_Instnace().Get_BACK_outputDoubleBuffer(obj), obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_output_Instnace().Get_stat_REG_Stack_At_Client_OutputRecieve_List_Of_Output());
+                    obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Flip_OutBufferToWrite();
+                    obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Do_Store_PraiseOutputRecieve_To_GameInstanceData(obj, obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_output_Instnace().Get_stat_REG_Stack_At_Client_OutputRecieve_List_Of_Output().ElementAt(1));
+                    obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Set_isPraiseActive(obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_output_Instnace().Get_FRONT_outputDoubleBuffer(obj).Get_praiseEventId(), false);
+                    OpenAvrilCFSD.ImportCLIBLaunchEnableForConcurrentThreadsAtCLIENT.app_FUNCT_thread_End(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_ConcurrentQue_C(), _concurrentThreadId);
+                    if (obj.dyn_CLASS_get_app_Client().Get_dyn_CLASS_data().Get_dyn_CLASS_data_Control().Get_flag_IsLoaded_Stack_OutputRecieve())
                     {
-                        if (OpenAvrilCFSD.Library_For_LaunchEnableForConcurrentThreadsAt_CLIENT.Get_State_LaunchBit(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_ConcurrentQue_C()) == OpenAvrilCFSD.Library_For_LaunchEnableForConcurrentThreadsAt_CLIENT.Get_Flag_Idle(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_ConcurrentQue_C()))
+                        if (OpenAvrilCFSD.ImportCLIBLaunchEnableForConcurrentThreadsAtCLIENT.app_FUNCT_get_Flag_ConcurrentCoreState(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_ConcurrentQue_C(), OpenAvrilCFSD.ImportCLIBLaunchEnableForConcurrentThreadsAtCLIENT.app_FUNCT_get_coreId_To_launch(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_ConcurrentQue_C())) == OpenAvrilCFSD.ImportCLIBLaunchEnableForConcurrentThreadsAtCLIENT.app_FUNCT_get_Flag_Idle(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_ConcurrentQue_C()))
                         {
-                            OpenAvrilCFSD.Library_For_LaunchEnableForConcurrentThreadsAt_CLIENT.Request_Wait_Launch(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_ConcurrentQue_C(), OpenAvrilCFSD.Library_For_LaunchEnableForConcurrentThreadsAt_CLIENT.Get_coreId_To_Launch(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_ConcurrentQue_C()));
+                            OpenAvrilCFSD.ImportCLIBLaunchEnableForConcurrentThreadsAtCLIENT.Request_Wait_Launch(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_ConcurrentQue_C(), OpenAvrilCFSD.Library_For_LaunchEnableForConcurrentThreadsAt_CLIENT.Get_coreId_To_Launch(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_ConcurrentQue_C()));
                         }
                     }
-                    OpenAvrilCFSD.Library_For_WriteEnableForThreadsAt_CLIENTOUTPUTRECIEVE.Write_End(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_WriteQue_C_OR(), (byte)(_concurrentThreadId + 1));
+                    OpenAvrilCFSD.ImportCLIBWriteEnableForThreadsAtCLIENTOUTPUTRECIEVE.app_FUNCT_write_End(obj.dyn_CLASS_get_app_Client().dyn_CLASS_get_execute().Get_program_WriteQue_C_OR(), (byte)(_concurrentThreadId + 1));
                 }
             }
         }
